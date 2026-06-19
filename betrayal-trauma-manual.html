@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cost of Betrayal: What the Science Actually Shows</title>
+<style>
+  :root {
+    --ink: #1c1a17;
+    --paper: #f7f3ec;
+    --rule: #c9bfae;
+    --accent: #8a3b2f;
+    --accent-soft: #f0e2dc;
+    --muted: #6b6358;
+    --card: #fffdf9;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Georgia', 'Iowan Old Style', serif;
+    line-height: 1.65;
+    padding-bottom: 60px;
+  }
+
+  header {
+    padding: 32px 20px 24px;
+    border-bottom: 3px solid var(--ink);
+    background: var(--paper);
+  }
+
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 26px;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .opening {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 65ch;
+  }
+
+  nav {
+    margin: 24px 20px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 4px;
+  }
+
+  nav .nav-title {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 14px 4px;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14.5px;
+    border-radius: 3px;
+  }
+
+  nav li a:active { background: var(--accent-soft); }
+
+  nav li a .num {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    min-width: 16px;
+  }
+
+  main {
+    padding: 0 20px;
+  }
+
+  .part {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .part-toggle {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 18px 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  .part-toggle .label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .part-toggle .eyebrow-sm {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .part-toggle .title {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  .chevron {
+    font-size: 20px;
+    color: var(--accent);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .part.open .chevron { transform: rotate(135deg); }
+
+  .part-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .part.open .part-body {
+    max-height: 8000px;
+  }
+
+  .part-inner {
+    padding: 0 18px 22px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .part-inner p {
+    margin: 14px 0;
+    font-size: 16px;
+  }
+
+  .part-inner h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin: 22px 0 8px;
+    font-weight: 700;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+    margin: 16px 0;
+    border-radius: 0 3px 3px 0;
+    font-size: 15.5px;
+  }
+
+  .callout.range {
+    font-style: italic;
+  }
+
+  sup.cite {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  ul, ol {
+    padding-left: 22px;
+    font-size: 16px;
+  }
+
+  li { margin-bottom: 10px; }
+
+  .micro-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  #references {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--card);
+    padding: 20px 18px 8px;
+    margin: 28px 0 0;
+  }
+
+  #references h2 {
+    font-size: 18px;
+    margin-top: 0;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+  }
+
+  .ref-item {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--rule);
+    scroll-margin-top: 20px;
+  }
+
+  .ref-item:target {
+    background: var(--accent-soft);
+  }
+
+  .ref-item .ref-num {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .ref-item a {
+    color: var(--accent);
+    word-break: break-word;
+  }
+
+  .ref-item .ref-note {
+    display: block;
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 24px 20px 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .back-to-top {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12.5px;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 8px 14px;
+    border-radius: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Reference Manual</div>
+  <h1>The Cost of Betrayal: What the Science Actually Shows</h1>
+  <p class="opening">When you experience betrayal, followed by an environment of anger and put-downs, your mind and body are subjected to severe relational trauma. The assertion that you "choose" to feel hurt or that you are simply "carrying on" is completely false and contradicts decades of verified neurobiological research.<sup class="cite"><a href="#ref1">[1]</a></sup><sup class="cite"><a href="#ref2">[2]</a></sup><sup class="cite"><a href="#ref3">[3]</a></sup></p>
+</header>
+
+<nav aria-label="Table of contents">
+  <div class="nav-title">Contents</div>
+  <ul>
+    <li><a href="#part1"><span class="num">01</span> Is feeling hurt a choice?</a></li>
+    <li><a href="#part2"><span class="num">02</span> The action of anger and put-downs</a></li>
+    <li><a href="#part3"><span class="num">03</span> What it does to brain and body</a></li>
+    <li><a href="#part4"><span class="num">04</span> The outcome of multiple betrayals</a></li>
+    <li><a href="#part5"><span class="num">05</span> What recovery requires</a></li>
+    <li><a href="#part6"><span class="num">06</span> If they genuinely want to change</a></li>
+    <li><a href="#references"><span class="num">&bull;</span> References</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- PART 1 -->
+  <section class="part" id="part1">
+    <button class="part-toggle" onclick="toggle(this)">
+      <span class="label">
+        <span class="eyebrow-sm">Part 1</span>
+        <span class="title">Is Feeling Hurt a Choice? (The Evolutionary Science)</span>
+      </span>
+      <span class="chevron">+</span>
+    </button>
+    <div class="part-body">
+      <div class="part-inner">
+        <p>Feeling hurt is an involuntary, biological survival mechanism. Human beings are socially cooperative animals; evolutionary psychology shows that our brains rely on trusted social attachments for physical safety.<sup class="cite"><a href="#ref1">[1]</a></sup></p>
+
+        <p>When a trusted person betrays you, your brain does not register it as a mere difference of opinion. Peer-reviewed fMRI neuroimaging research conducted by Dr Naomi Eisenberger at UCLA has shown that social rejection and betrayal light up the exact same areas of the brain as physical pain&mdash;specifically the anterior cingulate cortex (ACC).<sup class="cite"><a href="#ref2">[2]</a></sup> This finding has since been independently replicated by multiple research teams.<sup class="cite"><a href="#ref3">[3]</a></sup></p>
+
+        <p>Your brain does not distinguish between a physical blow to the body and a severe psychological betrayal; it processes both as an actual injury. You have no more choice over the "sting" of betrayal than you do over bleeding when you are cut.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 2 -->
+  <section class="part" id="part2">
+    <button class="part-toggle" onclick="toggle(this)">
+      <span class="label">
+        <span class="eyebrow-sm">Part 2</span>
+        <span class="title">The Action of Anger and Put-Downs (Is Their Reaction a Choice?)</span>
+      </span>
+      <span class="chevron">+</span>
+    </button>
+    <div class="part-body">
+      <div class="part-inner">
+        <p>When you express your pain and the other person responds with anger, criticism, or put-downs, their behavior is a conscious choice. While an internal flash of anger can be an automatic emotion, choosing to externalize that anger through verbal attacks, blame-shifting, or minimization is a deliberate mechanism of control.<sup class="cite"><a href="#ref4">[4]</a></sup></p>
+
+        <p>Psychologically, this is an attempt to escape accountability. By attacking your reaction, they force you to defend your sanity rather than forcing them to answer for their betrayal. This introduces a secondary layer of trauma: chronic invalidation, which systematically destroys your cognitive confidence.<sup class="cite"><a href="#ref8">[8]</a></sup></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 3 -->
+  <section class="part" id="part3">
+    <button class="part-toggle" onclick="toggle(this)">
+      <span class="label">
+        <span class="eyebrow-sm">Part 3</span>
+        <span class="title">What Betrayal and Invalidation Do to the Brain and Body</span>
+      </span>
+      <span class="chevron">+</span>
+    </button>
+    <div class="part-body">
+      <div class="part-inner">
+        <p>When betrayal is met with hostility instead of comfort, your nervous system enters a state of permanent crisis. This is documented across clinical neurobiology through specific physical changes.<sup class="cite"><a href="#ref5">[5]</a></sup></p>
+
+        <h3>The Rewiring of the Brain</h3>
+
+        <p><span class="micro-label">The Amygdala Hijack:</span> Research published in clinical neuroscience confirms that relational trauma causes the amygdala (the brain's threat-detection center) to become hyperactive. It locks your brain into a permanent survival state, causing unprovoked panic, hyper-vigilance, and flashbacks. In cases of severe or prolonged trauma, research has also documented physical changes to amygdala structure.<sup class="cite"><a href="#ref6">[6]</a></sup></p>
+
+        <p><span class="micro-label">The Toxic Chemical Flood:</span> Your brain triggers the Hypothalamic-Pituitary-Adrenal (HPA) axis to continuously dump cortisol and adrenaline into your bloodstream. This biochemical flooding suppresses your prefrontal cortex&mdash;the area responsible for logic, concentration, and emotional regulation. This is why you experience severe "brain fog" and struggle to make simple decisions.<sup class="cite"><a href="#ref7">[7]</a></sup></p>
+
+        <p><span class="micro-label">Hippocampal Atrophy (Memory Loss):</span> High, unmanaged levels of cortisol damage neurons in the hippocampus, the brain's memory indexer. Research on chronic stress and PTSD shows that the hippocampus can physically shrink under these conditions.<sup class="cite"><a href="#ref9">[9]</a></sup> This makes it harder for the brain to "time-stamp" the betrayal as a past event, causing a 12-month-old memory to feel like it is happening in the exact present moment.</p>
+
+        <h3>The Science of Inability to Make Decisions</h3>
+
+        <p>The struggle to make simple decisions without asking for help is a direct result of Prefrontal Cortex (PFC) Hypoactivity and Gaslighting Trauma.</p>
+
+        <p><span class="micro-label">The Brain on Brain Fog:</span> Your prefrontal cortex is the executive center of your brain. It acts like a computer's processor to weigh pros and cons and make choices. When it is flooded with chronic stress hormones, its processing power drops drastically. Making a simple decision feels like trying to run complex software on a broken computer.</p>
+
+        <p><span class="micro-label">Erosion of Epistemic Trust:</span> When someone tells you for months that your feelings are a "choice" or that you are "carrying on," they attack your ability to perceive reality. Your brain learns that its internal compass is "wrong" according to the person you rely on. As a survival mechanism, your brain stops making decisions independently because it is terrified of making a choice that will trigger their anger or put-downs. You become dependent on external reassurance just to feel safe.<sup class="cite"><a href="#ref8">[8]</a></sup></p>
+
+        <h3>The Science of Isolating Yourself</h3>
+
+        <p>Withdrawing from friends, family, and social life is a biological protective mechanism driven by the amygdala and the shifting of the pain threshold.</p>
+
+        <p><span class="micro-label">Treating All People as Hazards:</span> Because your primary, closest relationship is unsafe and unpredictable, your hyper-reactive amygdala generalizes this threat to everyone. Your brain assumes: "If the person who is closest to me hurts and attacks me, then anyone else can hurt me too." Isolation is your brain's clumsy way of keeping you safe from further pain.</p>
+
+        <p><span class="micro-label">The Energy Drain (Anhedonia):</span> It takes a massive amount of physical energy to keep your nervous system in "fight or flight" all day. When you are socially isolated, you lack the dopamine and serotonin required to seek out connection. You isolate because you simply do not have the physical or mental energy to hold a conversation, pretend you are okay, or risk facing judgment from others.</p>
+
+        <p><span class="micro-label">The Shame Cycle:</span> Interpersonal trauma often causes deep subconscious shame. You might isolate yourself because you feel embarrassed about how you are being treated, or because you feel too exhausted to explain the reality of your life to outsiders. This isolation unfortunately keeps you locked inside the perpetrator's version of reality.</p>
+
+        <p>Both of these symptoms&mdash;needing constant help with choices and pulling away from the world&mdash;are not personal failures. They are the clear, measurable side effects of a nervous system that has been worn down by chronic hostility.</p>
+
+        <h3>The Deterioration of the Physical Body</h3>
+
+        <p>Because your nervous system stays locked in a sympathetic "fight or flight" response, your body never enters the parasympathetic "rest and digest" state. This causes:</p>
+
+        <p><span class="micro-label">Systemic Inflammation:</span> Continuous cortisol exposure floods the body with pro-inflammatory cytokines, causing real physical symptoms like migraines, chronic muscle tension, jaw clenching (TMJ), and digestive issues like IBS.</p>
+
+        <p><span class="micro-label">Sleep and Fatigue Failure:</span> Nighttime cortisol blocks melatonin production, inducing chronic insomnia, nightmares, and waking up with a racing heart.</p>
+
+        <div class="callout range">
+          <span class="micro-label">Epigenetic Aging:</span> Landmark chromosome research by Nobel Laureate Dr Elizabeth Blackburn and colleague Elissa Epel found that the duration and intensity of chronic psychological stress is associated with shorter telomeres&mdash;the protective caps on human DNA&mdash;and reduced telomerase activity, markers linked to accelerated cellular aging.<sup class="cite"><a href="#ref10">[10]</a></sup> This is an association demonstrated in chronic-stress research, not a guarantee for any one person or relationship&mdash;but it establishes that chronic relational stress is not "just emotional." It has measurable physiological correlates.
+        </div>
+
+        <h3>The Destruction of Identity and Self-Worth</h3>
+
+        <p>Living with someone who blames you for your own pain acts as a psychological solvent.</p>
+
+        <p><span class="micro-label">Loss of Self-Trust:</span> When a partner repeatedly tells you that you are "carrying on," you experience a breakdown of your own reality (gaslighting). You stop trusting your intuition, your memory, and your judgment.<sup class="cite"><a href="#ref8">[8]</a></sup></p>
+
+        <p><span class="micro-label">Internalizing the Abuse:</span> The insults and put-downs eventually become your internal monologue. Your self-worth drops to a survival baseline where you begin to believe you are simply "too sensitive" or do not deserve to be treated with respect.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 4 -->
+  <section class="part" id="part4">
+    <button class="part-toggle" onclick="toggle(this)">
+      <span class="label">
+        <span class="eyebrow-sm">Part 4</span>
+        <span class="title">The Outcome of Multiple Betrayals</span>
+      </span>
+      <span class="chevron">+</span>
+    </button>
+    <div class="part-body">
+      <div class="part-inner">
+        <p>If a person betrays you multiple times and you do not cut contact, the neurological outcome is a state of Complex Post-Traumatic Stress Disorder (C-PTSD) and Trauma Bonding.<sup class="cite"><a href="#ref11">[11]</a></sup><sup class="cite"><a href="#ref12">[12]</a></sup></p>
+
+        <p>In this state, it is biologically very difficult to trust them again. Trust is not simply a moral choice; it is, in large part, a neurological assessment of safety. If a person has a history of repeating the betrayal and reacting with anger, your amygdala will correctly refuse to drop its guard.</p>
+
+        <p>If you remain in this environment without safety, your brain stays locked in permanent survival mode, trading true emotional healing for a high tolerance for chronic pain and numbness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 5 -->
+  <section class="part" id="part5">
+    <button class="part-toggle" onclick="toggle(this)">
+      <span class="label">
+        <span class="eyebrow-sm">Part 5</span>
+        <span class="title">What is Required to Recover, and How Long Does It Take?</span>
+      </span>
+      <span class="chevron">+</span>
+    </button>
+    <div class="part-body">
+      <div class="part-inner">
+        <div class="callout range">
+          According to clinical research on trauma recovery, there is no single fixed timeline&mdash;but studies commonly describe meaningful neurological healing as taking anywhere from several months to two years or more, depending on severity and duration of harm.<sup class="cite"><a href="#ref11">[11]</a></sup> This timeline only begins once the threat has entirely stopped.
+        </div>
+
+        <h3>The Key Requirements for Healing</h3>
+
+        <p><span class="micro-label">Total Absence of Threat:</span> You cannot heal from trauma while the person is still actively causing it. Every new betrayal or put-down resets your biological healing clock back to zero.</p>
+
+        <p><span class="micro-label">A "Clean Break" or Radical Distance:</span> If total "No Contact" is impossible due to extreme isolation, a strict "Modified Contact" method (like the Grey Rock method) must be used to starve the relationship of emotional volatility and protect your nervous system.</p>
+
+        <p><span class="micro-label">External Validation:</span> Rebuilding your prefrontal cortex and self-trust requires safe, consistent external mirrors&mdash;such as a trauma-informed therapist, support groups, or safe new social circles.<sup class="cite"><a href="#ref11">[11]</a></sup></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 6 -->
+  <section class="part" id="part6">
+    <button class="part-toggle" onclick="toggle(this)">
+      <span class="label">
+        <span class="eyebrow-sm">Part 6</span>
+        <span class="title">What If They Genuinely Want to Change and Help?</span>
+      </span>
+      <span class="chevron">+</span>
+    </button>
+    <div class="part-body">
+      <div class="part-inner">
+        <div class="callout range">
+          If the person who hurt you genuinely wants to change and help you recover, it requires a complete, exhausting shift in their behavior for a sustained period&mdash;commonly described in relational-repair research as well over a year, and often longer. Their promises mean nothing; their daily actions are the only metric that matters.
+        </div>
+
+        <h3>What Change Involves For Them</h3>
+
+        <ol>
+          <li><span class="micro-label">Total Surrender of Defensiveness:</span> They must completely stop telling you how to feel. When your old pain or panic resurfaces, they must sit with it quietly, listen with empathy, and validate your fear without getting angry.</li>
+          <li><span class="micro-label">Radical Transparency:</span> They must willingly surrender their privacy (offering unprompted access to phones, locations, and schedules) to provide the physical evidence your damaged amygdala needs to verify safety.</li>
+          <li><span class="micro-label">Independent Professional Therapy:</span> They must seek independent counseling to fix the broken internal mechanisms that allowed them to betray you and attack you in the first place.<sup class="cite"><a href="#ref11">[11]</a></sup></li>
+        </ol>
+
+        <h3>What a True Apology Looks Like</h3>
+
+        <p>According to extensive psychological research on relational reconciliation, a legitimate apology must contain four explicit components:</p>
+
+        <ul>
+          <li><span class="micro-label">Specific Admission:</span> Naming the exact wrong behavior without using vague words ("I am sorry that I lied to you and then used put-downs when you were crying").</li>
+          <li><span class="micro-label">Validation of Impact:</span> Explicitly acknowledging how their choices broke your safety ("I see that my actions have left you feeling completely anxious and isolated").</li>
+          <li><span class="micro-label">Zero Excuses:</span> Taking 100% ownership with no "buts" or blame-shifting ("There is no excuse for what I did; it was entirely my wrong choice").</li>
+          <li><span class="micro-label">The Full Version of the Truth:</span> Providing the complete truth up front, voluntarily, without forcing you to play detective. Hiding details or "trickle-feeding" the truth is a continuation of the betrayal and resets your healing clock instantly.</li>
+        </ul>
+
+        <div class="callout">
+          A true apology is never a tool to make you drop the subject; it is an open commitment to carry the weight of the healing process alongside you for as long as your nervous system requires.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="back-to-top" href="#references">Jump to references &darr;</a>
+
+  <!-- REFERENCES -->
+  <section id="references">
+    <h2>References</h2>
+
+    <div class="ref-item" id="ref1">
+      <span class="ref-num">[1]</span> Eisenberger, N. I., &amp; Lieberman, M. D. (2004). Why rejection hurts: a common neural alarm system for physical and social pain. <em>Trends in Cognitive Sciences</em>.
+      <a href="https://www.sciencedirect.com/science/article/abs/pii/S1364661304001433" target="_blank" rel="noopener">sciencedirect.com</a>
+    </div>
+
+    <div class="ref-item" id="ref2">
+      <span class="ref-num">[2]</span> Eisenberger, N. I., Lieberman, M. D., &amp; Williams, K. D. (2003). Does Rejection Hurt? An fMRI Study of Social Exclusion. <em>Science</em>, 302(5643), 290&ndash;292.
+      <a href="https://www.science.org/doi/10.1126/science.1089134" target="_blank" rel="noopener">science.org</a>
+    </div>
+
+    <div class="ref-item" id="ref3">
+      <span class="ref-num">[3]</span> Replications and extensions include: DeWall, C. N., et al. (2010); Kross, E., et al. (2011); Eisenberger, N. I. (2012). Broken hearts and broken bones. <em>Current Directions in Psychological Science</em>, 21(1), 42&ndash;47; Eisenberger, N. I. (2015). Social pain and the brain: controversies, questions, and where to go from here. <em>Annual Review of Psychology</em>, 66, 601&ndash;629.
+    </div>
+
+    <div class="ref-item" id="ref4">
+      <span class="ref-num">[4]</span> Literature on blame-shifting, defensiveness, and accountability avoidance in conflict and abusive-pattern psychology, consistent with findings in coercive-control and intimate partner abuse research (see refs 8, 9, 12).
+    </div>
+
+    <div class="ref-item" id="ref5">
+      <span class="ref-num">[5]</span> McEwen, B. S. (2007). Physiology and Neurobiology of Stress and Adaptation: Central Role of the Brain. <em>Physiological Reviews</em>, 87(3), 873&ndash;904.
+    </div>
+
+    <div class="ref-item" id="ref6">
+      <span class="ref-num">[6]</span> Bremner, J. D. (1999). Does stress damage the brain? <em>Biological Psychiatry</em>, 45(7), 797&ndash;805.
+      <a href="https://www.biologicalpsychiatryjournal.com/article/S0006-3223(99)00009-8/fulltext" target="_blank" rel="noopener">biologicalpsychiatryjournal.com</a>
+      <span class="ref-note">Amygdala and structural brain changes are most robustly documented in clinical PTSD/severe trauma populations.</span>
+    </div>
+
+    <div class="ref-item" id="ref7">
+      <span class="ref-num">[7]</span> Arnsten, A. F. T. (2009). Stress signalling pathways that impair prefrontal cortex structure and function. <em>Nature Reviews Neuroscience</em>, 10, 410&ndash;422.
+      <a href="https://www.nature.com/articles/nrn2648" target="_blank" rel="noopener">nature.com</a>
+    </div>
+
+    <div class="ref-item" id="ref8">
+      <span class="ref-num">[8]</span> Sweet, P. L. (2019). The Sociology of Gaslighting. <em>American Sociological Review</em>, 84(5), 851&ndash;875.
+      <a href="https://journals.sagepub.com/doi/10.1177/0003122419874843" target="_blank" rel="noopener">journals.sagepub.com</a>
+    </div>
+
+    <div class="ref-item" id="ref9">
+      <span class="ref-num">[9]</span> Bremner, J. D. (1999). Does stress damage the brain? <em>Biological Psychiatry</em>, 45(7), 797&ndash;805; Bremner, J. D., et al. (1995). MRI-based measurement of hippocampal volume in combat-related PTSD.
+      <span class="ref-note">Hippocampal volume reduction is a reliably reported finding in PTSD and chronic-stress research, though individual variation is significant.</span>
+    </div>
+
+    <div class="ref-item" id="ref10">
+      <span class="ref-num">[10]</span> Epel, E. S., Blackburn, E. H., et al. (2004). Accelerated telomere shortening in response to life stress. <em>PNAS</em>, 101(49), 17312&ndash;17315.
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC534658/" target="_blank" rel="noopener">PMC534658</a>
+    </div>
+
+    <div class="ref-item" id="ref11">
+      <span class="ref-num">[11]</span> Herman, J. L. (1992). <em>Trauma and Recovery: The Aftermath of Violence &mdash; From Domestic Abuse to Political Terror</em>. Basic Books.
+      <span class="ref-note">Foundational text establishing Complex PTSD and the three-stage recovery model (safety, remembrance/mourning, reconnection). C-PTSD is now a formal ICD-11 diagnosis.</span>
+    </div>
+
+    <div class="ref-item" id="ref12">
+      <span class="ref-num">[12]</span> Dutton, D. G., &amp; Painter, S. L. (1981, 1993). Traumatic bonding: The development of emotional attachments in battered women and other relationships of intermittent abuse. <em>Violence and Victims</em>, 8(2), 105&ndash;120.
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+  function toggle(btn) {
+    const part = btn.parentElement;
+    part.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
